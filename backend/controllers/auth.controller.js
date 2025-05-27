@@ -38,6 +38,7 @@ const login = async (req, res) => {
       name: userData.name,
       email: userData.email,
       isAdmin: userData.isAdmin,
+      permissions: userData.permissions,
     };
 
     const accessToken = generateAccessToken(
@@ -57,7 +58,7 @@ const login = async (req, res) => {
       success: true,
       data: responseData,
       accessToken,
-      refreshToken,
+      refreshToken
     });
   } catch (error) {
     res.status(500).json({
@@ -95,6 +96,7 @@ const register = async (req, res) => {
       name: userDetails.name,
       email: userDetails.email,
       isAdmin: userDetails.isAdmin,
+      permissions: userDetails.permissions,
     };
 
     const accessToken = generateAccessToken(
