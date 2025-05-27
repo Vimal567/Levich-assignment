@@ -22,8 +22,7 @@ const getUserPermissions = async (req, res) => {
 
 // Update user permissions
 const updateUserPermissions = async (req, res) => {
-  const userId = req.user.userId;
-  const { permissions } = req.body; // expects array like ['read', 'write']
+  const { userId, permissions } = req.body; // permissions array like ['read', 'write']
 
   if (!Array.isArray(permissions)) {
     return res
