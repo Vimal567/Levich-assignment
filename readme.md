@@ -138,7 +138,7 @@ The Postman collection file can be found at the following location in the reposi
    - After logging in, copy the `accessToken` from the response.
    - Use this token in the **Bearer Token** section or **Authorization Headers** in Postman for the requests that require authentication.
 
-#Test Login Credentials
+# Test Login Credentials
 
 Email - admin@gmail.com
 Password - 12345678
