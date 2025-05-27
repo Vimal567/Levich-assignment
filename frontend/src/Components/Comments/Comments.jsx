@@ -3,13 +3,12 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ENDPOINT } from '../../App';
 import { useSnackbar } from 'notistack';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const CommentsPage = () => {
   const [comments, setComments] = useState([]);
   const [newComment, setNewComment] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState('');
 
   const { enqueueSnackbar } = useSnackbar();
   const navigate = useNavigate();
@@ -28,7 +27,6 @@ const CommentsPage = () => {
       setComments(res.data.comments);
     } catch (err) {
       enqueueSnackbar("Failed to load comments.", { variant: 'warning' });
-      setError('Failed to load comments.');
     } finally {
       setIsLoading(false);
     }
@@ -80,15 +78,20 @@ const CommentsPage = () => {
 
   return (
     <div className="container page-container">
-      <h2 className='pb-3'>Comments</h2>
+
+      <div className='d-flex justify-content-end my-2'>
+        <button className='btn btn-primary'>
+          <Link to="/admin-dashboard" className='text-white text-decoration-none'>Admin Dashboard</Link>
+        </button>
+      </div>
+
+      <h2 className='mb-3'>Comments</h2>
 
       {isLoading && (
         <div className="text-center my-3">
           <div className="spinner-border text-primary" role="status" />
         </div>
       )}
-
-      {error && <div className="alert alert-danger">{error}</div>}
 
       {currentUser && currentUser.permissions.includes("write") && <form onSubmit={handleAddComment} className="mb-3">
         <div className="input-group">
@@ -133,8 +136,6 @@ const CommentsPage = () => {
             );
           })}
       </ul>
-
-
     </div>
   );
 };

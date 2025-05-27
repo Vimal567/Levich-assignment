@@ -6,6 +6,7 @@ import Login from "./Components/Login/Login";
 import CommentsPage from "./Components/Comments/Comments";
 import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
 import ResetPassword from "./Components/ResetPassword/ResetPassword";
+import AdminDashboard from "./Components/AdminDashboard/AdminDashboard";
 
 export const ENDPOINT = "http://localhost:8000/api/";
 
@@ -19,6 +20,7 @@ function App() {
         <Route path="/comments" element={<CommentsPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/reset-password" element={<ResetPassword />} />
+        <Route path="/admin-dashboard" element={<AdminDashboard />} />
         <Route path="*" element={<Login />} />
       </Routes>
     </BrowserRouter>

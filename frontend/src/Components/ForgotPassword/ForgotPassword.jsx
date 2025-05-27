@@ -67,7 +67,7 @@ const ForgotPassword = () => {
         </form>
       </div>
 
-      {/* Bootstrap Modal */}
+      {/* Token Modal */}
       {showModal && (
         <div className="modal show d-block" tabIndex="-1" role="dialog">
           <div className="modal-dialog" role="document">
