@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ENDPOINT } from '../../App';
 import { useSnackbar } from 'notistack';
+import { useNavigate } from 'react-router-dom';
 
 const CommentsPage = () => {
   const [comments, setComments] = useState([]);
@@ -11,6 +12,7 @@ const CommentsPage = () => {
   const [error, setError] = useState('');
 
   const { enqueueSnackbar } = useSnackbar();
+  const navigate = useNavigate();
 
   const accessToken = localStorage.getItem('accessToken');
   const currentUser = JSON.parse(localStorage.getItem('user'));
@@ -69,7 +71,11 @@ const CommentsPage = () => {
   };
 
   useEffect(() => {
-    fetchComments();
+    if (accessToken) {
+      fetchComments();
+    } else {
+      navigate('/login');
+    }
   }, []);
 
   return (

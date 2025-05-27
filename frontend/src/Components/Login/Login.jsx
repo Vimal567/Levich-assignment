@@ -54,7 +54,7 @@ const Login = () => {
       navigate('/comments');
     } catch (error) {
       setIsLoading(false);
-      const errorMessage = "Login failed.  Try again later.";
+      const errorMessage = error.response.data.message || "Login failed.  Please try again";
       enqueueSnackbar(errorMessage, { variant: 'error' });
     }
   };
@@ -112,6 +112,8 @@ const Login = () => {
               <button type="submit" className='btn btn-primary'>Login</button>}
             <Link to="/register">Have an account?</Link>
           </div>
+          <br />
+          <Link to="/forgot-password" className='text-secondary'>Forgot password?</Link>
         </form>
       </div>
     </div>
