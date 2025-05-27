@@ -3,6 +3,7 @@ import './App.css';
 import Header from './Components/Header/Header';
 import Register from './Components/Register/Register';
 import Login from './Components/Login/Login';
+import CommentsPage from './Components/Comments/Comments';
 
 export const ENDPOINT = "http://localhost:8000/api/";
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route index path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/comments" element={<CommentsPage />} />
         <Route path="*" element={<Login />} />
       </Routes>
     </BrowserRouter>

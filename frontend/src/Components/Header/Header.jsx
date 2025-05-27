@@ -23,7 +23,7 @@ const Header = () => {
   }, [location]);
 
   return (
-    <div className='header-container'>
+    <div className='header-container' sticky="top">
       <div className="heading">
         <h1>Levich Assignment</h1>
       </div>

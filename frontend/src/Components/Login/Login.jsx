@@ -51,7 +51,7 @@ const Login = () => {
       setUserEntry({ email: '', password: '' });
       setIsLoading(false);
       enqueueSnackbar("Logged in successfully!", { variant: 'success' })
-      navigate('/');
+      navigate('/comments');
     } catch (error) {
       setIsLoading(false);
       const errorMessage = "Login failed.  Try again later.";

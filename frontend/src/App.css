@@ -26,6 +26,5 @@ ul, li {
 
 .page-container {
   width: 100%;
-  margin-top: 6vh;
-  min-height: 94vh;
+  min-height: 90vh;
 }
