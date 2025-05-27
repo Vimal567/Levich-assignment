@@ -8,7 +8,7 @@ import ForgotPassword from "./Components/ForgotPassword/ForgotPassword";
 import ResetPassword from "./Components/ResetPassword/ResetPassword";
 import AdminDashboard from "./Components/AdminDashboard/AdminDashboard";
 
-export const ENDPOINT = "http://localhost:8000/api/";
+export const ENDPOINT = "https://levich-assignment-1.onrender.com/api/";
 
 function App() {
   return (
