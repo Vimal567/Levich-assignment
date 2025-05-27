@@ -1,13 +1,36 @@
 import { useEffect, useState } from 'react';
 import './Header.css';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useSnackbar } from 'notistack';
+import { ENDPOINT } from '../../App';
 
 const Header = () => {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-  const location = useLocation();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const handleLogout = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const { enqueueSnackbar } = useSnackbar();
+
+  const handleLogout = async () => {
+    const refreshToken = localStorage.getItem('refreshToken');
+    if (!refreshToken) {
+      enqueueSnackbar('No refresh token found.', { variant: 'warning' });
+      return;
+    }
+
+    try {
+      await axios.post(ENDPOINT + 'auth/logout', { refreshToken });
+
+      // Clear local storage
+      localStorage.clear();
+
+      enqueueSnackbar('Logged out successfully.', { variant: 'success' });
+      navigate('/login');
+    } catch (error) {
+      console.error(error);
+    }
     localStorage.clear();
     setIsLoggedIn(false);
   };
@@ -36,8 +59,8 @@ const Header = () => {
           :
           <li className="menu-item">
             <Link to="/register">Register</Link>
-          </li>) 
-          : 
+          </li>)
+          :
           <li className='menu-item'>
             <Link to="/login" onClick={handleLogout}>Logout</Link>
           </li>}
