@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "9367a800-c29e-4b35-973e-1e21c8291b83",
+		"name": "Auth comment service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "24712850"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/auth/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"admin\",\r\n    \"email\": \"admin@gmail.com\",\r\n    \"password\": \"12345678\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/auth/login"
+			},
+			"response": []
+		},
+		{
+			"name": "Forgot Password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"admin@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/auth/forgot-password"
+			},
+			"response": []
+		},
+		{
+			"name": "Reset Password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"resetToken\": \"55a6bea548e039f0e246f5c6e945e1e0c0b7ce72f724ed09a92945b55ed2597c\",\r\n  \"newPassword\": \"1234567890\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/auth/reset-password"
+			},
+			"response": []
+		},
+		{
+			"name": "Permissions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/api/permissions"
+			},
+			"response": []
+		},
+		{
+			"name": "Comments",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"text\": \"Hi! I'm admin.\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/comments"
+			},
+			"response": []
+		},
+		{
+			"name": "Permissions",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"fsfsdfsdfs23df2rsd\",\r\n    \"permissions\": [\r\n        \"read\",\r\n        \"write\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/permissions"
+			},
+			"response": []
+		},
+		{
+			"name": "Make admin",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"vimalrock82@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/permissions/promote"
+			},
+			"response": []
+		},
+		{
+			"name": "Comments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8000/api/comments"
+			},
+			"response": []
+		},
+		{
+			"name": "Refresh token",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM0OWEzMTEwMjU3NTI3Y2M2MWI2ZjQiLCJlbWFpbCI6Im5pcm1hbHJvY2s4MkBnbWFpbC5jb20iLCJpYXQiOjE3NDgyNzg0MjQsImV4cCI6MTc0ODg4MzIyNH0.Jy55eC23V70-KzRiyKDDBfdfXFUQuw47elcyh8J3638\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/auth/refresh"
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"refreshToken\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM1Mzc4NjE2MWY4MThmN2UzNWM4ZWQiLCJlbWFpbCI6Im5pcm1hbHJvY2s4MkBnbWFpbC5jb20iLCJpYXQiOjE3NDgzMTgwOTQsImV4cCI6MTc0ODkyMjg5NH0.6pHIDvCFKD4SB9st8xm8kuwXP18WvKFRt9y3_ZI2Yyc\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/api/auth/logout"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2ODM1NzI2YjQ1NTQxMmQ1NzJmMzYxOGQiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlzQWRtaW4iOnRydWUsImlhdCI6MTc0ODMzMzM5MiwiZXhwIjoxNzQ4MzQ3NzkyfQ.HnzG5N1rc30YK2Jxr58p2YJMRqpz0OV4ECr98SyyN1k"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
